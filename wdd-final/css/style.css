@@ -1,0 +1,212 @@
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-size: 100%;
+    font: inherit;
+    vertical-align: baseline;
+}
+
+a {
+    text-decoration: none;
+    color: #79BD8F;
+    -webkit-transition: color 0.2s ease;
+       -moz-transition: color 0.2s ease;
+        -ms-transition: color 0.2s ease;
+         -o-transition: color 0.2s ease;
+            transition: color 0.2s ease;
+}
+
+a:hover {
+    text-decoration: underline;
+    color: #00A388;
+}
+
+body {
+    background-color: #EFFAE8;
+    text-align: center;
+}
+
+p {
+    font-family: 'Roboto', sans-serif;
+    font-size: 20px;
+    line-height: 26px;
+    color: #009378;
+}
+
+#wrapper {
+    width: 100%;
+    position: relative;
+}
+
+#about-wrapper {
+    width: 960px;
+    margin: 200px auto;
+    position: relative;
+    text-align: left;
+}
+
+.title {
+    font-family: "Menlo", Consolas, monospace, serif;
+    font-size: 48px;
+    font-weight: 700;
+    color: #00A388;
+    margin-top: 30px;
+}
+
+.subtitle {
+    font-family: "Menlo", Consolas, monospace, serif;
+    font-size: 21px;
+    font-weight: 400;
+    color: #79BD8F;
+    margin-top: 12px;
+}
+
+#logo {
+    width: 350px;
+    height: 350px;
+    margin-top: 40px;
+}
+
+#icon {
+    width: 70px;
+    height: 70px;
+    position: absolute;
+    top: 35px;
+    left: 30px;
+    padding: 5px;
+    -webkit-border-radius: 10px;
+            border-radius: 10px;
+    -webkit-transition: 0.2s ease;
+       -moz-transition: 0.2s ease;
+        -ms-transition: 0.2s ease;
+         -o-transition: 0.2s ease;
+            transition: 0.2s ease;
+}
+
+#icon:hover {
+    background-color: rgba(255, 255, 255, 0.8);
+}
+
+#tag {
+    position: absolute;
+    top: 65px;
+    left: 120px;
+    font-size: 20px;
+    font-family: "Menlo", Consolas, monospace, serif;
+    color: #79BD8F;
+    display: none;
+}
+
+#header {
+    width: 100%;
+    position: fixed;
+    height: 150px;
+    top: 0px;
+    background-color: #EFFAE8;
+    -webkit-box-shadow: 0px 0px 6px #888888;
+            box-shadow: 0px 0px 6px #888888;
+    z-index: 100;
+}
+
+.unit {
+    position: relative;
+    width: 600px;
+    height: 80px;
+    background-color: #79BD8F;
+    font-family: 'Roboto Condensed', sans-serif;
+    margin: 40px auto;
+    -webkit-box-shadow: 0px 0px 6px #888888;
+            box-shadow: 0px 0px 6px #888888;
+    -webkit-transition: box-shadow 0.3s ease;
+       -moz-transition: box-shadow 0.3s ease;
+        -ms-transition: box-shadow 0.3s ease;
+         -o-transition: box-shadow 0.3s ease;
+            transition: box-shadow 0.3s ease;
+}
+
+.unit#first {
+    margin-top: 190px;
+}
+
+.unit:hover {
+    -webkit-box-shadow: 0px 0px 15px #888888;
+            box-shadow: 0px 0px 15px #888888;
+}
+
+.active, .unit.active:hover{
+    -webkit-box-shadow: 0px 0px 20px #00A388;
+            box-shadow: 0px 0px 20px #00A388;
+}
+
+.unit .mini {
+    position: relative;
+    text-align: left;
+    top: 6px;
+    margin-left: 10px;
+    font-size: 21px;
+    color: #F1F7E5;
+}
+
+.unit .event {
+    position: relative;
+    text-align: left;
+    margin-left: 10px;
+    font-size: 36px;
+    color: #F1F7E5;
+}
+
+.unit .datebox {
+    position: absolute;
+    right: 5px;
+    top: 5px;
+    height: 70px;
+    width: 70px;
+    background-color: #F1F7E5;
+}
+
+.unit .datebox .day {
+    position: relative;
+    color: #00A388;
+    font-size: 36px;
+}
+
+.unit .datebox .month {
+    position: relative;
+    color: #79BD8F;
+    font-size: 22px;
+    margin-top: -12px;
+}
+
+#menu {
+    margin-bottom: 30px;
+}
+
+#scrolltop {
+    margin-bottom: 30px;
+    text-decoration: none;
+    color: #79BD8F;
+    -webkit-transition: color 0.2s ease;
+       -moz-transition: color 0.2s ease;
+        -ms-transition: color 0.2s ease;
+         -o-transition: color 0.2s ease;
+            transition: color 0.2s ease;
+}
+
+#scrolltop:hover {
+    text-decoration: underline;
+    cursor: pointer;
+    color: #00A388;
+}
