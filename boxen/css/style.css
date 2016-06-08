@@ -1,0 +1,42 @@
+.text-content {
+	padding: 10px;
+	font-size: 20px;
+	color: #111;
+}
+
+.content > iframe {
+	height: 100%;
+	width: 100%;
+}
+
+#norway {
+	background-image: url(../img/norway.jpg);
+	background-repeat: no-repeat;
+	background-position: 50% 50%;
+	background-size: cover;
+}
+
+#twist {
+	background-color: #FDEADF;
+	background-image: url(../img/gif.gif);
+	background-repeat: no-repeat;
+	background-position: 50% 50%;
+	-webkit-background-size: contain;
+	background-size: contain;
+}
+
+#coffee {
+	background-image: url(https://upload.wikimedia.org/wikipedia/commons/4/45/A_small_cup_of_coffee.JPG);
+	background-repeat: no-repeat;
+	background-position: 50% 50%;
+	-webkit-background-size: contain;
+	background-size: contain;
+}
+
+#rocket {
+	background-image: url(https://d13yacurqjgara.cloudfront.net/users/219089/screenshots/1321178/rocket.gif);
+	background-repeat: no-repeat;
+	background-position: 50% 50%;
+	-webkit-background-size: contain;
+	background-size: contain;
+}
