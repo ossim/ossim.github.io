@@ -44,7 +44,7 @@ body {
 p {
     font-family: 'Roboto', sans-serif;
     font-size: 20px;
-    line-height: 26px;
+    line-height: 30px;
     color: #444444;
 }
 
@@ -125,12 +125,15 @@ p {
 .unit {
     position: relative;
     width: 600px;
-    height: 80px;
+    height: 100px;
     background-color: #79BD8F;
     font-family: 'Roboto Condensed', sans-serif;
+    padding: 10px;
     margin: 40px auto;
     box-shadow: 0px 0px 12px #888888;
     transition: box-shadow 0.3s ease;
+    box-sizing: border-box;
+    border-radius: 6px;
 
     &#first {
         margin-top: 190px;
@@ -143,7 +146,6 @@ p {
     .mini {
         position: relative;
         text-align: left;
-        top: 6px;
         margin-left: 10px;
         font-size: 21px;
         color: #F1F7E5;
@@ -159,11 +161,14 @@ p {
 
     .datebox {
         position: absolute;
-        right: 5px;
-        top: 5px;
-        height: 70px;
-        width: 70px;
+        right: 10px;
+        top: 10px;
+        height: 80px;
+        width: 80px;
+        padding: 5px;
+        box-sizing: border-box;
         background-color: #F1F7E5;
+        border-radius: 3px;
 
         .day {
             position: relative;
