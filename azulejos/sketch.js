@@ -46,8 +46,8 @@ function draw() {
               255 *
               pow(
                 noise(
-                  0.02 * absX * complexityMod,
-                  0.02 * absY * complexityMod,
+                  0.04 * absX * complexityMod,
+                  0.04 * absY * complexityMod,
                   0.02 * frameCount + 12.41 * tX + 13.25 * tY
                 ),
                 2
@@ -56,8 +56,8 @@ function draw() {
               255 *
               pow(
                 noise(
-                  0.02 * absX * complexityMod,
-                  0.02 * absY * complexityMod,
+                  0.05 * absX * complexityMod,
+                  0.05 * absY * complexityMod,
                   0.03 * frameCount + 20 + 14.42 * tX + 12.7 * tY
                 ),
                 4
