@@ -5,9 +5,11 @@ const windowH = window.innerHeight;
 const tileW = 100;
 const tileH = 100;
 
-const tileX = Math.min(Math.floor(windowW / tileW), 12);
-const tileY = Math.min(Math.floor(windowH / tileH), 12);
+const tileX = Math.min(Math.floor(windowW / tileW), 4);
+const tileY = Math.min(Math.floor(windowH / tileH), 4);
 
+const tIndex = [...Array(tileX * tileY)];
+const xIter = [...Array(tileW / 2)];
 // fit however many tiles we can into the canvas
 const canvasX = tileX * tileW;
 const canvasY = tileY * tileH;
@@ -15,78 +17,69 @@ const canvasY = tileY * tileH;
 function setup() {
   createCanvas(canvasX, canvasY);
   noStroke();
-  frameRate(2);
+  frameRate(24);
 }
 
 function draw() {
-  const seed = Math.random();
-  const updateX = Math.floor(seed * tileX);
-  const updateY = Math.floor(Math.random() * tileY);
-  const complexityMod = seed / 2 + 1;
+  tIndex.forEach((v, tI) => {
+    const xI = tI % tileX;
+    const yI = Math.floor(tI / tileX);
+    const xO = (xI + 0.5) * tileW;
+    const yO = (yI + 0.5) * tileH;
 
-  for (let tX = 0; tX < tileX; tX += 1) {
-    for (let tY = 0; tY < tileY; tY += 1) {
-      for (let x = 0; x < tileW; x += 1) {
-        for (let y = 0; y < tileH; y += 1) {
-          // initialize the whole board, and then only update one tile per frame after that
-          if (
-            frameCount % (tileX * tileY) === tX + tileX * tY ||
-            frameCount === 1
-          ) {
-            // mirroring eightfold
-            let pabsX = abs(x - tileW / 2);
-            let pabsY = abs(y - tileH / 2);
-            let absX = Math.max(pabsX, pabsY);
-            let absY = Math.min(pabsX, pabsY);
+    xIter.forEach((w, x) => {
+      [...Array(x + 1)].forEach((q, y) => {
+        if (
+          // we don't have to update every px per frame!
+          x % 3 === (frameCount * 7) % 3 &&
+          y % 4 === (frameCount * 7) % 4
+        ) {
+          let color1 =
+            255 *
+            pow(noise(0.03 * (x + xO), 0.03 * (y + yO), 0.001 * frameCount), 2);
+          let color2 =
+            255 *
+            pow(noise(0.04 * (x + xO), 0.04 * (y + yO), 0.002 * frameCount), 4);
 
-            // using perlin noise to generate some contours.
-            // i power it up by 2 or 4 to create blobbier more severe contours.
-            // the blue and the gold are two separate noise contours.
-            let color1 =
-              255 *
-              pow(
-                noise(
-                  0.04 * absX * complexityMod,
-                  0.04 * absY * complexityMod,
-                  0.02 * frameCount + 12.41 * tX + 13.25 * tY
-                ),
-                2
-              );
-            let color2 =
-              255 *
-              pow(
-                noise(
-                  0.05 * absX * complexityMod,
-                  0.05 * absY * complexityMod,
-                  0.03 * frameCount + 20 + 14.42 * tX + 12.7 * tY
-                ),
-                4
-              );
-
-            // colors get defined
-            if (x % tileW === 0 || y % tileH === 0) {
-              fill(255, 255, 255);
-            } else if (50 <= color2 && color2 < 60) {
-              fill(251, 191, 36);
-            } else if (40 <= color2 && color2 < 50) {
-              fill(245, 158, 11);
-            } else if (color1 > 90) {
-              fill(147, 197, 253);
-            } else if (color1 > 65) {
-              fill(37, 99, 235);
-            } else if (color1 > 55) {
-              fill(29, 78, 216);
-            } else {
-              fill(245, 245, 244);
-            }
-            if (frameCount === 1) {
-              rect(x + tX * tileW, y + tY * tileH, 1, 1);
-            } else {
-              rect(x + updateX * tileW, y + updateY * tileH, 1, 1);
-            }
+          if (55 <= color2 && color2 < 57) {
+            // amber 500
+            fill(245, 158, 11);
+          } else if (50 <= color2 && color2 < 55) {
+            // amber 600
+            fill(251, 191, 36);
+          } else if (40 <= color2 && color2 < 50) {
+            // amber 500
+            fill(245, 158, 11);
+          } else if (color1 > 90) {
+            // blue 400
+            fill(56, 189, 248);
+          } else if (color1 > 88) {
+            // blue 500
+            fill(14, 165, 233);
+          } else if (color1 > 65) {
+            // blue 600
+            fill(2, 132, 199);
+          } else if (color1 > 55) {
+            // blue 700
+            fill(3, 105, 161);
+          } else if (color1 > 54) {
+            // blue 400
+            fill(56, 189, 248);
+          } else {
+            fill(245, 245, 244);
           }
+
+          // color 8 rects at once since they're all identical
+          rect(xO + x, yO + y, 1, 1);
+          rect(xO + y, yO + x, 1, 1);
+          rect(xO - x, yO - y, 1, 1);
+          rect(xO - y, yO - x, 1, 1);
+          rect(xO + x, yO - y, 1, 1);
+          rect(xO + y, yO - x, 1, 1);
+          rect(xO - x, yO + y, 1, 1);
+          rect(xO - y, yO + x, 1, 1);
         }
-      }
-    }
-  }
+      });
+    });
+  });
 }
